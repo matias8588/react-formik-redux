@@ -1,7 +1,5 @@
 import React from 'react';
-import {
- withFormik, FormikProps, FormikErrors, Form, Field 
-} from 'formik';
+import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
 
 // Shape of form values
 interface FormValues {
@@ -15,8 +13,7 @@ interface OtherProps {
 
 // Aside: You may see InjectedFormikProps<OtherProps, FormValues> instead of what comes below in older code.. InjectedFormikProps was artifact of when Formik only exported a HoC. It is also less flexible as it MUST wrap all props (it passes them through).
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
-  const {
- touched, errors, isSubmitting, message, } = props;
+  const { touched, errors, isSubmitting, message } = props;
   return (
     <Form>
       <h1>{message}</h1>
@@ -61,12 +58,12 @@ const MyForm = withFormik<MyFormProps, FormValues>({
 
   handleSubmit: (values) => {
     // do submitting things
-    clg;
+    console.log(values);
   },
 })(InnerForm);
 
 // Use <MyForm /> wherevs
-const App = () => (
+const App: React.FC = () => (
   <div>
     <h1>My App</h1>
     <p>This can be anywhere in your application</p>
