@@ -1,81 +1,77 @@
 import React from 'react';
-import { Formik } from "formik";
-import * as Yup from "yup";
-import {  DisplayFormikState } from "./helper";
-import "./helper.css";
+import {
+ withFormik, FormikProps, FormikErrors, Form, Field 
+} from 'formik';
 
-function App() {
-  return (
-    <div className="app">
-    <h1>
-      Formik demo
-    </h1>
-
-    <Formik
-      initialValues={{ email: "" }}
-      onSubmit={async values => {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        alert(JSON.stringify(values, null, 2));
-      }}
-      validationSchema={Yup.object().shape({
-        email: Yup.string()
-          .email()
-          .required("Required")
-      })}
-    >
-      {props => {
-        const {
-          values,
-          touched,
-          errors,
-          dirty,
-          isSubmitting,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          handleReset
-        } = props;
-        return (
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email" style={{ display: "block" }}>
-              Email
-            </label>
-            <input
-              id="email"
-              placeholder="Enter your email"
-              type="text"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                errors.email && touched.email
-                  ? "text-input error"
-                  : "text-input"
-              }
-            />
-            {errors.email && touched.email && (
-              <div className="input-feedback">{errors.email}</div>
-            )}
-
-            <button
-              type="button"
-              className="outline"
-              onClick={handleReset}
-              disabled={!dirty || isSubmitting}
-            >
-              Reset
-            </button>
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
-
-            <DisplayFormikState {...props} />
-          </form>
-        );
-      }}
-    </Formik>
-  </div>
-  );
+// Shape of form values
+interface FormValues {
+  email: string;
+  password: string;
 }
+
+interface OtherProps {
+  message: string;
+}
+
+// Aside: You may see InjectedFormikProps<OtherProps, FormValues> instead of what comes below in older code.. InjectedFormikProps was artifact of when Formik only exported a HoC. It is also less flexible as it MUST wrap all props (it passes them through).
+const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
+  const {
+ touched, errors, isSubmitting, message, } = props;
+  return (
+    <Form>
+      <h1>{message}</h1>
+      <Field type="email" name="email" />
+      {touched.email && errors.email && <div>{errors.email}</div>}
+
+      <Field type="password" name="password" />
+      {touched.password && errors.password && <div>{errors.password}</div>}
+
+      <button type="submit" disabled={isSubmitting}>
+        Submit
+      </button>
+    </Form>
+  );
+};
+
+// The type of props MyForm receives
+interface MyFormProps {
+  initialEmail?: string;
+  message: string; // if this passed all the way through you might do this or make a union type
+}
+
+// Wrap our form with the withFormik HoC
+const MyForm = withFormik<MyFormProps, FormValues>({
+  // Transform outer props into form values
+  mapPropsToValues: (props) => ({
+    email: props.initialEmail || '',
+    password: '',
+  }),
+
+  // Add a custom validation function (this can be async too!)
+  validate: (values: FormValues) => {
+    const errors: FormikErrors<FormValues> = {};
+    if (!values.email) {
+      errors.email = 'Required';
+    }
+    // else if (!isValidEmail(values.email)) {
+    //   errors.email = 'Invalid email address';
+    // }
+    return errors;
+  },
+
+  handleSubmit: (values) => {
+    // do submitting things
+    clg;
+  },
+})(InnerForm);
+
+// Use <MyForm /> wherevs
+const App = () => (
+  <div>
+    <h1>My App</h1>
+    <p>This can be anywhere in your application</p>
+    <MyForm message="Sign up" />
+  </div>
+);
 
 export default App;
