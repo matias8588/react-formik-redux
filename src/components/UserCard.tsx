@@ -4,7 +4,7 @@ import { IUser } from '../models/User';
 
 const UserCard: React.FC<IUser> = ({ id, email, first_name, last_name, avatar }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg border-solid border border-gray-600">
+    <div className="max-w-sm rounded overflow-hidden shadow-user border-solid border border-gray-600">
       <img className="object-cover h-48 w-full" src={avatar} alt="Sunset in the mountains" />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{`${first_name} ${last_name}`}</div>

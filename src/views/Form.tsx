@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
   const history = useHistory();
 
   return (
-    <div className="border border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
+    <div className="border border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-user rounded-lg">
       <div className="w-full max-w-xs">
         <h1 className="mt-5">Login Form</h1>
         <Formik

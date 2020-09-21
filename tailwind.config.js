@@ -16,8 +16,7 @@ module.exports = {
       };
     },
     boxShadow: {
-      menu: '-5px 0px 5px 2px #657687',
-      profile: '-1px 0 10px 0px #657687',
+      user: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
     },
     extend: {
       colors: {
