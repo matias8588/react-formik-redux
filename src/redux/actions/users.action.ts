@@ -10,13 +10,8 @@ const getUsersSuccess: any = (data: any) => ({
   data,
 });
 
-const createUserRequest: any = (data: any) => ({
-  type: Types.CREATE_USER_REQUEST,
-  data,
-});
-
-const deleteUserRequest: any = (data: any) => ({
-  type: Types.DELETE_USER_REQUEST,
+const loginRequest: any = (data: any) => ({
+  type: Types.LOGIN_REQUEST,
   data,
 });
 
@@ -27,10 +22,9 @@ const usersError: any = (data: any) => ({
 
 export const usersActions = {
   getUsersRequest,
-  createUserRequest,
-  deleteUserRequest,
   usersError,
   getUsersSuccess,
+  loginRequest,
 };
 
 export default usersActions;

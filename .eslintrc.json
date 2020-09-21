@@ -26,13 +26,16 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
     }
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "react/prop-types": ["off"],
     "sonarjs/cognitive-complexity": ["error", 5],
-    "max-lines-per-function": ["error", 50],
+    "max-lines-per-function": ["warn", 80],
     "react/jsx-filename-extension": ["off"],
     "no-use-before-define": ["warn", { "variables": false }],
     "max-len": [
@@ -41,7 +44,16 @@
         "code": 300
       }
     ],
-    "import/extensions": 2,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "jsx-a11y/label-has-associated-control": 0
   }
 }
