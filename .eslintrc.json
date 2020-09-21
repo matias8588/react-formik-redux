@@ -41,6 +41,7 @@
         "code": 300
       }
     ],
-    "import/extensions": 2
+    "import/extensions": 2,
+    "jsx-a11y/label-has-associated-control": 0
   }
 }
