@@ -12,14 +12,17 @@ interface Props {
 const UserCard = (props: Props) => {
   const { id, email, first_name, last_name, avatar } = props;
   return (
-    <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4 border-solid border-2 border-gray-600">
-      <img className="w-full h-56 object-cover object-center" src={avatar} alt="avatar" />
-      <div className="flex items-center px-6 py-3 bg-gray-900">
-        <h1 className="mx-3 text-white font-semibold text-lg">{`Employee number ${id}`}</h1>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg border-solid border border-gray-600">
+      <img className="object-cover h-48 w-full" src={avatar} alt="Sunset in the mountains" />
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{`${first_name} ${last_name}`}</div>
+        <p className="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
       </div>
-      <div className="py-4 px-6">
-        <h1 className="text-2xl font-semibold text-gray-800">{`${first_name} ${last_name}`}</h1>
-        <p className="py-2 text-lg text-gray-700">{email}</p>
+      <div className="px-6 pt-4 pb-2">
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{id}</span>
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{email}</span>
       </div>
     </div>
   );

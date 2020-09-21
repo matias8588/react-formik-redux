@@ -14,7 +14,6 @@ const users = (state = INITIAL_STATE, action: any) => {
       };
     }
     case Types.USERS_ERROR: {
-      console.log(action);
       return {
         ...state,
         error: action.data.error,
