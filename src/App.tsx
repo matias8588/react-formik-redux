@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Form from './components/test';
+import Form from './views/Form';
 import Users from './views/Users';
 
 const App: React.FC = () => (

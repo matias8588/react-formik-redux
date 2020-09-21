@@ -1,16 +1,8 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { IUser } from '../models/User';
 
-interface Props {
-  id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
-}
-
-const UserCard = (props: Props) => {
-  const { id, email, first_name, last_name, avatar } = props;
+const UserCard: React.FC<IUser> = ({ id, email, first_name, last_name, avatar }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg border-solid border border-gray-600">
       <img className="object-cover h-48 w-full" src={avatar} alt="Sunset in the mountains" />
