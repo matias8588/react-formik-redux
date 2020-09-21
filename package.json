@@ -92,12 +92,10 @@
   },
   "lint-staged": {
     "*.+(tsx|ts|js|json|css|scss|md)": [
-      "prettier --write .",
-      "git add"
+      "prettier --write ."
     ],
     "*.+(ts|js|tsx)": [
-      "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-      "git add"
+      "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
     ]
   }
 }
