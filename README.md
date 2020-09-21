@@ -20,3 +20,10 @@ yarn start
 - Sass preprocessor.
 - Tailwind CSS.
 - Formik.
+
+## Test user
+
+[From reqres API](https://reqres.in/)
+
+- email: eve.holt@reqres.in
+- password: cityslicka
