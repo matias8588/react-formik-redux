@@ -20,7 +20,7 @@ const Users: React.FC = () => {
 
   const users = useSelector(selectUsers);
   return (
-    <div className="h-full flex flex-wrap justify-center sm:w-full md:w-full lg:w-4/5 xl:w-4/5">
+    <div className="grid grid-flow-col grid-rows-2 sm:grid-rows-3 md:grid-rows-4 lg:grid-rows-5 xl:grid-rows-6 ">
       {users.map((user) => (
         <div className="sm:w-full md:w-full lg:w-2/5 xl:w-2/5 m-3 rounded shadow-lg overflow-hidden">
           <UserCard {...user} />
