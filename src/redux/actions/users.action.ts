@@ -1,5 +1,6 @@
 import Types from '../constants/user.constant';
 import { IUserRequest, ILoginRequest, IUserError, IUserSuccess } from '../../models/Redux';
+import { ILogin } from '../../models/User';
 
 const getUsersRequest = (data: Array<[]>): IUserRequest => ({
   type: Types.GET_USERS_REQUEST,
@@ -11,12 +12,12 @@ const getUsersSuccess = (data: Array<[]>): IUserSuccess => ({
   data,
 });
 
-const loginRequest = (data: Array<[]>): ILoginRequest => ({
+const loginRequest = (data: ILogin): ILoginRequest => ({
   type: Types.LOGIN_REQUEST,
   data,
 });
 
-const usersError = (data: Array<[]>): IUserError => ({
+const usersError = (data: string): IUserError => ({
   type: Types.USERS_ERROR,
   data,
 });

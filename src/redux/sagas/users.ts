@@ -7,9 +7,9 @@ const errorMessage = 'Error ocurred';
 function* getUsers() {
   try {
     const result = yield call(() => axios.get('https://reqres.in/api/users?page=1'));
-    yield put(actions.getUsersSuccess({ list: result.data.data }));
+    yield put(actions.getUsersSuccess(result.data.data));
   } catch (error) {
-    yield put(actions.usersError({ error: errorMessage }));
+    yield put(actions.usersError(errorMessage));
   }
 }
 
@@ -24,7 +24,7 @@ function* login(action: any) {
     yield call(() => axios.post('https://reqres.in/api/login', { email: data.email, password: data.password }));
     yield call(getUsers);
   } catch (error) {
-    yield put(actions.usersError({ error: errorMessage }));
+    yield put(actions.usersError(errorMessage));
   }
 }
 

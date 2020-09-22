@@ -1,4 +1,5 @@
 import Types from '../redux/constants/user.constant';
+import { ILogin } from './User';
 
 export interface IUserRequest {
   type: typeof Types.GET_USERS_REQUEST;
@@ -12,10 +13,10 @@ export interface IUserSuccess {
 
 export interface ILoginRequest {
   type: typeof Types.LOGIN_REQUEST;
-  data: Array<[]>;
+  data: ILogin;
 }
 
 export interface IUserError {
   type: typeof Types.USERS_ERROR;
-  data: Array<[]>;
+  data: string;
 }

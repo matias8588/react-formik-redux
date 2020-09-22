@@ -11,6 +11,11 @@ export interface IState {
   error: string;
 }
 
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
 export interface IAction {
   data: {
     error: string;
