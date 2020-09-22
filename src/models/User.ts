@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 export interface IUser {
   id: number;
   email: string;
@@ -7,9 +6,15 @@ export interface IUser {
   last_name: string;
   avatar: string;
 }
+export interface IState {
+  list: Array<[]>;
+  error: string;
+}
 
 export interface IAction {
-  data: any;
+  data: {
+    error: string;
+    list: Array<[]>;
+  };
   type: string;
-  error: string;
 }
