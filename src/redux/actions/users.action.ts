@@ -1,21 +1,22 @@
 import Types from '../constants/user.constant';
+import { IUserRequest, ILoginRequest, IUserError, IUserSuccess } from '../../models/Redux';
 
-const getUsersRequest: any = (data: any) => ({
+const getUsersRequest = (data: Array<[]>): IUserRequest => ({
   type: Types.GET_USERS_REQUEST,
   data,
 });
 
-const getUsersSuccess: any = (data: any) => ({
+const getUsersSuccess = (data: Array<[]>): IUserSuccess => ({
   type: Types.GET_USERS_SUCCESS,
   data,
 });
 
-const loginRequest: any = (data: any) => ({
+const loginRequest = (data: Array<[]>): ILoginRequest => ({
   type: Types.LOGIN_REQUEST,
   data,
 });
 
-const usersError: any = (data: any) => ({
+const usersError = (data: Array<[]>): IUserError => ({
   type: Types.USERS_ERROR,
   data,
 });

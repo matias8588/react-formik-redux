@@ -92,7 +92,7 @@
   },
   "lint-staged": {
     "*.+(tsx|ts|js|json|css|scss|md)": [
-      "prettier --write ."
+      "prettier --write"
     ],
     "*.+(ts|js|tsx)": [
       "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
