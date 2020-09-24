@@ -1,12 +1,12 @@
 import Types from '../constants/user.constant';
-import { IState } from '../../models/User';
+import { IAction, IState, IErrorAction } from '../../models/User';
 
 const INITIAL_STATE: IState = {
   list: [],
   error: '',
 };
 
-const users = (state = INITIAL_STATE, action: any): IState => {
+const users = (state = INITIAL_STATE, action: IAction & IErrorAction): IState => {
   switch (action.type) {
     case Types.GET_USERS_SUCCESS: {
       return {

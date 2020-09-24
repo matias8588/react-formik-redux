@@ -17,9 +17,12 @@ export interface ILogin {
 }
 
 export interface IAction {
+  data: Array<[]>;
+  type: string;
+}
+
+export interface IErrorAction {
   data: {
     error: string;
-    list: Array<[]>;
   };
-  type: string;
 }
